@@ -1,2 +1,6 @@
 *.pyc
 *~
+parts/
+prime/
+stage/
+*.snap

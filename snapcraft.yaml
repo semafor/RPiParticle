@@ -1,0 +1,29 @@
+name: rpiparticle
+version: 0.1
+summary: A small code.
+description: This is a small code.
+
+apps:
+  rpiparticle-service:
+    command: fby_client
+    daemon: simple
+    plugs: [raw-usb, network, classic-support] # io-ports-control ?
+
+parts:
+  service:
+    plugin: dump
+    source: .
+
+  deps:
+    plugin: python2
+    requirements: ./requirements.txt
+    filesets:
+      binaries:
+        - bin/*
+        - usr/bin/*
+      libraries:
+        - lib/*
+        - usr/lib/*
+    stage:
+      - $binaries
+      - $libraries
